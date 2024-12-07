@@ -64,10 +64,10 @@ so I have kept the default refresh rate at once a day.
 Option|Possible values|Default|Description
 ------|------|------|-----------
 `apiKey`| | | your personal API key
-`lat`|`-90` -  `90` | `52.1107` (North Sea near The Hague)| Latitude of sea location 
-`lon`|`-180` -  `180` | `4.2626` (North Sea near The Hague)| Longitude of sea location
+`lat`|`-90` -  `90` | `"52.1107"` (North Sea near The Hague)| Latitude of sea location 
+`lon`|`-180` -  `180` | `"4.2626"` (North Sea near The Hague)| Longitude of sea location
 `updateInterval`| |`24` | update interval of content in hours. See section API documentation
-`units`|`Celcius`, `Fahrenheit` | Celcius | show temps in Celcius or Fahrenheit
+`units`|`"C"`, `"F"` | `"C"` | show temps in Celcius or Fahrenheit
 
 ## Sending notifications to the module
 
