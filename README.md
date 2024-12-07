@@ -4,7 +4,7 @@ A MagicMirror² module for displaying sea conditions.
 This version gives sea surface temperatures for a given location, 
 but in the future I may include other conditions like waves, air temperature and wind.
 
-Module displays a bar graph with conditions for a week, including 3 days forecast.
+Module displays a bar graph for a week, including 3 days forecast.
 
 ![Example of MMM-Template](./example_1.png)
 
@@ -56,7 +56,7 @@ This module uses a rapidAPI.com API, documentation can be found here:
 https://rapidapi.com/pavelzusko/api/sea-surface-temperature 
 
 Register at the site to get your API key. 
-They offer a free plan now (date 25-11-2024!) that allows for 100 calls per month, 
+They currently offer a free plan (date 25-11-2024!) that allows for 100 calls per month, 
 so I have kept the default refresh rate at once a day. 
 
 ## Configuration options
@@ -65,7 +65,7 @@ Option|Possible values|Default|Description
 ------|------|------|-----------
 `lat`|`-90` -  `90` | `52.1107` (North Sea near The Hague)| Latitude of sea location 
 `lon`|`-180` -  `180` | `4.2626` (North Sea near The Hague)| Longitude of sea location
-`updateInterval`| |`12` | update interval of content in hours. See section API documentation
+`updateInterval`| |`24` | update interval of content in hours. See section API documentation
 `units`|`Celcius`, `Fahrenheit` | Celcius | show temps in Celcius or Fahrenheit
 
 ## Sending notifications to the module
