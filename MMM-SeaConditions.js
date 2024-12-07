@@ -1,44 +1,30 @@
 Module.register("MMM-SeaConditions", {
 
   defaults: {
-    exampleContent: ""
+    lat: "52.1107",                 // latlon for North Sea Scheveningen beach
+    lon: "4.2626",                  // in string format for url
+    reloadInterval: 60*60*24*1000,  // refresh every 24 hours (measured in msec)
+	  units: "C"                      // show temps in degrees Celcius
   },
 
   /**
    * Apply the default styles.
    */
+  
   getStyles() {
     return ["seaconditions.css"]
   },
 
-  /**
-   * Pseudo-constructor for our module. Initialize stuff here.
-   */
   start() {
-    this.templateContent = this.config.exampleContent
-
-    // set timeout for next random text
-    setInterval(() => this.addRandomText(), 3000)
+    setInterval(() => {
+      this.getContent();
+    }, this.config.reloadInterval);
   },
 
   /**
-   * Handle notifications received by the node helper.
-   * So we can communicate between the node helper and the module.
-   *
-   * @param {string} notification - The notification identifier.
-   * @param {any} payload - The payload data`returned by the node helper.
+   * Render page we're on.
    */
-  socketNotificationReceived: function (notification, payload) {
-    if (notification === "EXAMPLE_NOTIFICATION") {
-      this.templateContent = `${this.config.exampleContent} ${payload.text}`
-      this.updateDom()
-    }
-  },
-
-  /**
-   * Render the page we're on.
-   */
-  getDom() {
+  getDom() {  /* nog aanpassen */
     const wrapper = document.createElement("div")
     wrapper.innerHTML = `<b>Title</b><br />${this.templateContent}`
 
