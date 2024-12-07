@@ -8,7 +8,7 @@ Module.register("MMM-SeaConditions", {
    * Apply the default styles.
    */
   getStyles() {
-    return ["template.css"]
+    return ["seaconditions.css"]
   },
 
   /**
