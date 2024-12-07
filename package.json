@@ -1,7 +1,7 @@
 {
   "name": "mmm-seaconditions",
   "version": "1.0.0",
-  "description": "[Module description]",
+  "description": "MagicMirror² displays local sea temperature",
   "main": "MMM-SeaConditions.js",
   "scripts": {
     "lint": "eslint .",
@@ -10,17 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+[GitHub url].git"
+    "url": "https://github.com/HarrieV8/MMM-SeaConditions"
   },
   "keywords": [
-    "template"
+    "Magic Mirror",
+    "Sea",
+    "Temperature"
   ],
-  "author": "[Author]",
+  "author": "HarrieV8",
   "license": "MIT",
-  "bugs": {
-    "url": "[GitHub url]/issues"
-  },
-  "homepage": "[GitHub url]#readme",
+  "homepage": "https://github.com/HarrieV8/MMM-SeaConditions#readme",
   "devDependencies": {
     "@eslint/js": "^9.10.0",
     "@stylistic/eslint-plugin": "^2.7.2",
