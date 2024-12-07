@@ -4,10 +4,7 @@ A MagicMirror² module for displaying sea conditions.
 This version gives sea surface temperatures for a given location, 
 but in the future I may include other conditions like waves, air temperature and wind.
 
-a graph with conditions for a week, including three days forecast and trend analysis
-
-See the [wiki page](https://github.com/Dennis-Rosenbaum/MMM-Template/wiki) for an in depth overview of how to get started.
-
+Module displays a bar graph with conditions for a week, including 3 days forecast.
 
 ![Example of MMM-Template](./example_1.png)
 
@@ -66,11 +63,10 @@ so I have kept the default refresh rate at once a day.
 
 Option|Possible values|Default|Description
 ------|------|------|-----------
-`lat`|`C`, `F` | `52.1107` (North Sea near The Hague)| Latitude of sea location 
-`lon`|`C`, `F` | `4.2626` (North Sea near The Hague)| Longitude of sea location
-`updateInterval`| |`12` | How often does the content needs to be fetched? (in hours). See section API documentation
+`lat`|`-90` -  `90` | `52.1107` (North Sea near The Hague)| Latitude of sea location 
+`lon`|`-180` -  `180` | `4.2626` (North Sea near The Hague)| Longitude of sea location
+`updateInterval`| |`12` | update interval of content in hours. See section API documentation
 `units`|`Celcius`, `Fahrenheit` | Celcius | show temps in Celcius or Fahrenheit
-`display`|`value`, `graph` | `value` | display today's value only, or a graph with conditions for a week, including three days forecast and trend analysis
 
 ## Sending notifications to the module
 
