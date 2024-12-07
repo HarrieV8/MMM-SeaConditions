@@ -36,7 +36,7 @@ To use this module, add it to the modules array in the `config/config.js` file:
 ```js
     {
         module: 'MMM-SeaConditions',
-        position: 'lower_third'
+        position: 'lower_third',
         config: {
 	   apiKey: "BuNcHofNuMbersAndLetters" // your API key from rapid API com
         }
