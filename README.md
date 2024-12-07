@@ -63,6 +63,7 @@ so I have kept the default refresh rate at once a day.
 
 Option|Possible values|Default|Description
 ------|------|------|-----------
+`apiKey`| | | your personal API key
 `lat`|`-90` -  `90` | `52.1107` (North Sea near The Hague)| Latitude of sea location 
 `lon`|`-180` -  `180` | `4.2626` (North Sea near The Hague)| Longitude of sea location
 `updateInterval`| |`24` | update interval of content in hours. See section API documentation
