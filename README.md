@@ -1,14 +1,10 @@
 # MMM-SeaConditions
-A MagicMirror² module for displaying sea conditions.
+A MagicMirror² module that fetches sea conditions from an API and displays on the mirror. The module displays a bar graph for a week, including 3 days forecast.
 
 This version gives sea surface temperatures for a given location, 
 but in the future I may include other conditions like waves, air temperature and wind.
 
-Module displays a bar graph for a week, including 3 days forecast.
-
 ![Example of MMM-Template](./example_1.png)
-
-[Module description]
 
 ## Installation
 
@@ -31,14 +27,14 @@ git pull
 
 ## Using the module
 
-To use this module, add it to the modules array in the `config/config.js` file:
+To use this module, add a minimum configuration in the modules array in the `config/config.js` file:
 
 ```js
     {
         module: 'MMM-SeaConditions',
-        position: 'lower_third',
+        position: 'top_right',
         config: {
-	   apiKey: "BuNcHofNuMbersAndLetters" // your API key from rapid API com
+	        apiKey: "BuNcHofNuMbersAndLetters" // your API key from rapid API com
         }
     },
 ```
@@ -48,13 +44,13 @@ Or you could use all the options:
 ```js
     {
         module: 'MMM-SeaConditions',
-        position: 'lower_third',
+        position: 'top_right',
         config: {
-            lat: "52.1107",                        // latlon for North Sea Scheveningen beach
-            lon: "4.2626",                         // in string format for url
-	    apiKey: "BuNcHofNuMbersAndLetters",    // your API key from rapid API com
-            updateInterval: 12,                    // refresh every 12 hours
-	    units: "F"                             // show temps in F (Fahrenheit)
+            lat: "52.1107",                     // latlon for North Sea Scheveningen beach
+            lon: "4.2626",                      // in string format for url
+	        apiKey: "BuNcHofNuMbersAndLetters", // your API key from rapid API com
+            updateInterval: 12*60*60*1000,      // refresh every 12 hours
+	        units: "F"                          // show temps in F (Fahrenheit)
         }
     },
 ```
@@ -62,18 +58,16 @@ Or you could use all the options:
 This module uses a rapidAPI.com API, documentation can be found here:
 https://rapidapi.com/pavelzusko/api/sea-surface-temperature 
 
-Register at the site to get your API key. 
-They currently offer a free plan (date 25-11-2024!) that allows for 100 calls per month, 
-so I have kept the default refresh rate at once a day. 
+Register at the site to get your personal API key, which you need to access the API. They currently offer a free plan (date 25-11-2024!) that allows for 100 calls per month, so I have kept the default refresh rate at once a day. 
 
 ## Configuration options
 
 Option|Possible values|Default|Description
 ------|------|------|-----------
-`apiKey`| | | your personal API key
+`apiKey`| | empty | your personal API key
 `lat`|`-90` -  `90` | `"52.1107"` (North Sea near The Hague)| Latitude of sea location 
 `lon`|`-180` -  `180` | `"4.2626"` (North Sea near The Hague)| Longitude of sea location
-`updateInterval`| |`24` | update interval of content in hours. See section API documentation
+`updateInterval`| |`1000*60*60*24` | update interval of content in msec. See section API documentation
 `units`|`"C"`, `"F"` | `"C"` | show temps in Celcius or Fahrenheit
 
 ## Sending notifications to the module
