@@ -45,11 +45,12 @@ Or you could use all the options:
     {
         module: 'MMM-SeaConditions',
         position: 'top_right',
+        header: 'Zeewater Scheveningen',
         config: {
             lat: "52.1107",                     // latlon for North Sea Scheveningen beach
             lon: "4.2626",                      // in string format for url
 	        apiKey: "BuNcHofNuMbersAndLetters", // your API key from rapid API com
-            updateInterval: 12*60*60*1000,      // refresh every 12 hours
+            reloadInterval: 12*60*60*1000,      // reload every 12 hours
 	        units: "F"                          // show temps in F (Fahrenheit)
         }
     },
@@ -67,7 +68,7 @@ Option|Possible values|Default|Description
 `apiKey`| | empty | your personal API key
 `lat`|`-90` -  `90` | `"52.1107"` (North Sea near The Hague)| Latitude of sea location 
 `lon`|`-180` -  `180` | `"4.2626"` (North Sea near The Hague)| Longitude of sea location
-`updateInterval`| |`1000*60*60*24` | update interval of content in msec. See section API documentation
+`reloadInterval`| |`1000*60*60*24` | reload interval of content in msec. See section API documentation
 `units`|`"C"`, `"F"` | `"C"` | show temps in Celcius or Fahrenheit
 
 ## Sending notifications to the module
