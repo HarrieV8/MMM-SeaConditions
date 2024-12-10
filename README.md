@@ -70,7 +70,7 @@ Option|Possible values|Default|Description
 `lon`|`-180` -  `180` | `"4.2626"` (North Sea near The Hague)| Longitude of sea location
 `reloadInterval`| |`1000*60*60*24` | reload interval of content in msec. See section API documentation
 `units`|`"C"`, `"F"` | `"C"` | show temps in Celcius or Fahrenheit
-`height`| | `"400px"` | sets a fixed height for the module
+`height`| | `"250px"` | sets a fixed height for the module
 
 ## Custom css
 
