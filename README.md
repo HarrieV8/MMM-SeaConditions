@@ -1,4 +1,4 @@
-# MMM-SeaConditions
+# MMM-SeaConditions v1.0
 This MagicMirror² module fetches sea conditions from an API and displays them on the mirror. The module displays a bar graph for a week, including 3 days forecast.
 
 The current version returns sea surface temperatures for a given location, 
