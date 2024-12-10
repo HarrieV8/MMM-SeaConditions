@@ -1,10 +1,10 @@
 # MMM-SeaConditions
-A MagicMirror² module that fetches sea conditions from an API and displays on the mirror. The module displays a bar graph for a week, including 3 days forecast.
+This MagicMirror² module fetches sea conditions from an API and displays them on the mirror. The module displays a bar graph for a week, including 3 days forecast.
 
-This version gives sea surface temperatures for a given location, 
-but in the future I may include other conditions like waves, air temperature and wind.
+The current version returns sea surface temperatures for a given location, 
+but in the future I may include other conditions like waves, air temperature and wind. I also want to include yearly averages etc...
 
-![Example of MMM-Template](./example_1.png)
+![Example of MMM-SeaConditions](./MMM-SeaConditions_screenshot.png)
 
 ## Installation
 
@@ -70,17 +70,17 @@ Option|Possible values|Default|Description
 `lon`|`-180` -  `180` | `"4.2626"` (North Sea near The Hague)| Longitude of sea location
 `reloadInterval`| |`1000*60*60*24` | reload interval of content in msec. See section API documentation
 `units`|`"C"`, `"F"` | `"C"` | show temps in Celcius or Fahrenheit
+`height`| | `"400px"` | sets a fixed height for the module
 
-## Sending notifications to the module
+## Custom css
 
-Notification|Description
-------|-----------
-`TEMPLATE_RANDOM_TEXT`|Payload must contain the text that needs to be shown on this module
+Some module style properties can be set through a module specific style in /css/custom.css:
 
-## Developer commands
-
-- `npm install` - Install devDependencies like ESLint.
-- `npm run lint` - Run linting and formatter checks.
-- `npm run lint:fix` - Fix linting and formatter issues.
+```css
+.MMM-SeaConditions {
+    font-size: 16px;
+    width: 400px;
+}
+```
 
 [mm]: https://github.com/MagicMirrorOrg/MagicMirror

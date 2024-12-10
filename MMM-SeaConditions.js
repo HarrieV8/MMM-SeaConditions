@@ -13,10 +13,12 @@ Module.register("MMM-SeaConditions", {
     lat: "52.1107",                 // latlon for North Sea Scheveningen beach
     lon: "4.2626",                  // in string format for url
     reloadInterval: 60*60*24*1000,  // refresh every 24 hours (measured in msec)
-	  units: "C",                      // show temps in degrees Celcius
-    height: 250,
-    width: 600,                      // hack, fix in custom.css later
+	units: "C",                   	// show temps in degrees Celcius
+    height: "250px",				// set module height 
+
   },
+
+  styles: {}, // Property to store styles
 
   getScripts: function() {
     return [
@@ -30,7 +32,7 @@ Module.register("MMM-SeaConditions", {
 
     setInterval(() => {
       setTimeout(() => {
-        this.getContent(); //re load with 1 second delay
+        this.getContent(); //re load, 1 second delay is needed!
       }, 1000);
     }, this.config.reloadInterval);
   },
@@ -38,9 +40,11 @@ Module.register("MMM-SeaConditions", {
    // Create the DOM for this module
    getDom () {
     const outerDiv = document.createElement('div');
+	setTimeout(() => {
+        this.styles = window.getComputedStyle(outerDiv); // get css style properties for outerDiv
+    }, 100); // small delay to ensure the element is rendered
     outerDiv.id = 'plotly-graph'; // Optional, for easy id
-    outerDiv.style.width = this.config.width + "px";
-    outerDiv.style.height = this.config.height + "px";
+    outerDiv.style.height = this.config.height;
     this.outerDiv = outerDiv;
     return outerDiv;
   },
@@ -48,7 +52,7 @@ Module.register("MMM-SeaConditions", {
   notificationReceived (notification) {
     if (notification === "ALL_MODULES_STARTED") {
       setTimeout(() => {
-        this.getContent(); //initial load with 1 second delay
+        this.getContent(); //first load, 1 second delay is needed!
       }, 1000);
     }
   },
@@ -57,9 +61,7 @@ Module.register("MMM-SeaConditions", {
    * Render page we're on.
    */
 
-
-/*
-  getContent: function()  {//display API output in plotly.js bar graph test function
+  getContent: function()  {//test function with fake temps data, to avoid calling API 
     
     const temps = [{"date": "20241122","tempC": 11.64,"tempF": 52.95}, 
       {"date": "20241123","tempC": 11.44,"tempF": 52.59}, 
@@ -71,7 +73,6 @@ Module.register("MMM-SeaConditions", {
 
     const colorful = ['grey','grey','grey','gold','white','white','white'];
     const mmcolorscheme = colorful;
-    const mmfsize = 16;
     const marginleft = 25;
     const marginright = 0;
 
@@ -120,11 +121,10 @@ Module.register("MMM-SeaConditions", {
 		paper_bgcolor: 'rgba(0,0,0,0)', //transparant background
   		plot_bgcolor: 'rgba(0,0,0,0)',
 		font: {
-			family: 'Roboto Condensed, sans-serif',
-			size: mmfsize,
-			color: 'grey',
-            weight: 300, // 300=light, 400=normal, 700=bold
-		},
+			family: this.styles.getPropertyValue("font-family"),
+			size: parseFloat(this.styles.getPropertyValue("font-size")),
+			color: this.styles.getPropertyValue("color"),
+		}, 
 		xaxis: {
 			visible: true,
 			zeroline: true,
@@ -132,8 +132,9 @@ Module.register("MMM-SeaConditions", {
 			type: 'category', //prevent formatting of date labels
 			tickfont: {
 				color: mmcolorscheme,
-				size: mmfsize,
+				size: parseFloat(this.styles.getPropertyValue("font-size")),
 			},
+			
 		},	
 		yaxis: {
 			showgrid: false,
@@ -163,8 +164,9 @@ Module.register("MMM-SeaConditions", {
 	Plotly.newPlot(this.outerDiv, data, layout, config); // create graph
 } //end getContent testfunction without API
 
-*/
-  getContent: async function() {
+
+/*
+  getContent: async function() { //get temps from API and display in plotly bar graph
 	const baseURL = 'https://sea-surface-temperature.p.rapidapi.com/current?latlon=';
     const lat = this.config.lat;
     const lon = this.config.lon;
@@ -187,7 +189,6 @@ Module.register("MMM-SeaConditions", {
 
     	const colorful = ['grey','grey','grey','gold','white','white','white'];
    		const mmcolorscheme = colorful;
-    	const mmfsize = 16;
     	const marginleft = 25;
     	const marginright = 0;
 
@@ -236,11 +237,10 @@ Module.register("MMM-SeaConditions", {
 		paper_bgcolor: 'rgba(0,0,0,0)', //transparant background
   		plot_bgcolor: 'rgba(0,0,0,0)',
 		font: {
-			family: 'Roboto Condensed, sans-serif',
-			size: mmfsize,
-			color: 'grey',
-            weight: 300, // 300=light, 400=normal, 700=bold
-		},
+			family: this.styles.getPropertyValue("font-family"),
+			size: parseFloat(this.styles.getPropertyValue("font-size")),
+			color: this.styles.getPropertyValue("color"),
+		}, 
 		xaxis: {
 			visible: true,
 			zeroline: true,
@@ -248,7 +248,7 @@ Module.register("MMM-SeaConditions", {
 			type: 'category', //prevent formatting of date labels
 			tickfont: {
 				color: mmcolorscheme,
-				size: mmfsize,
+				size: parseFloat(this.styles.getPropertyValue("font-size")),
 			},
 		},	
 		yaxis: {
@@ -278,13 +278,12 @@ Module.register("MMM-SeaConditions", {
 	
 	Plotly.newPlot(this.outerDiv, data, layout, config); // create graph
 
-
     } catch (error) {
           Log.error('Error fetching data:', error);
     }
   },
 
-
+*/
 
   /**
    * This is the place to receive notifications from other modules or the system.
