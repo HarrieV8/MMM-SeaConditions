@@ -34,7 +34,7 @@ To use this module, add a minimum configuration in the modules array in the `con
         module: 'MMM-SeaConditions',
         position: 'top_right',
         config: {
-	        apiKey: "BuNcHofNuMbersAndLetters" // your API key from rapid API com
+	    apiKey: "BuNcHofNuMbersAndLetters" // your API key from rapid API com
         }
     },
 ```
@@ -49,9 +49,9 @@ Or you could use all the options:
         config: {
             lat: "52.1107",                     // latlon for North Sea Scheveningen beach
             lon: "4.2626",                      // in string format for url
-	        apiKey: "BuNcHofNuMbersAndLetters", // your API key from rapid API com
+	    apiKey: "BuNcHofNuMbersAndLetters", // your API key from rapid API com
             reloadInterval: 12*60*60*1000,      // reload every 12 hours
-	        units: "F"                          // show temps in F (Fahrenheit)
+	    units: "F"                          // show temps in F (Fahrenheit)
         }
     },
 ```
