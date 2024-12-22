@@ -1,4 +1,4 @@
-# MMM-SeaConditions
+# MMM-SeaConditions v1.0
 This MagicMirror² module fetches sea conditions from an API and displays them on the mirror. The module displays a bar graph for a week, including 3 days forecast.
 
 The current version returns sea surface temperatures for a given location, 
@@ -34,7 +34,7 @@ To use this module, add a minimum configuration in the modules array in the `con
         module: 'MMM-SeaConditions',
         position: 'top_right',
         config: {
-	        apiKey: "BuNcHofNuMbersAndLetters" // your API key from rapid API com
+	    apiKey: "BuNcHofNuMbersAndLetters" // your API key from rapid API com
         }
     },
 ```
@@ -49,9 +49,9 @@ Or you could use all the options:
         config: {
             lat: "52.1107",                     // latlon for North Sea Scheveningen beach
             lon: "4.2626",                      // in string format for url
-	        apiKey: "BuNcHofNuMbersAndLetters", // your API key from rapid API com
+	    apiKey: "BuNcHofNuMbersAndLetters", // your API key from rapid API com
             reloadInterval: 12*60*60*1000,      // reload every 12 hours
-	        units: "F"                          // show temps in F (Fahrenheit)
+	    units: "F"                          // show temps in F (Fahrenheit)
         }
     },
 ```
@@ -70,7 +70,7 @@ Option|Possible values|Default|Description
 `lon`|`-180` -  `180` | `"4.2626"` (North Sea near The Hague)| Longitude of sea location
 `reloadInterval`| |`1000*60*60*24` | reload interval of content in msec. See section API documentation
 `units`|`"C"`, `"F"` | `"C"` | show temps in Celcius or Fahrenheit
-`height`| | `"400px"` | sets a fixed height for the module
+`height`| | `"250px"` | sets a fixed height for the module
 
 ## Custom css
 
