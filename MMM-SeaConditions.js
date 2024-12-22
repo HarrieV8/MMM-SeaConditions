@@ -10,7 +10,7 @@ MIT Licensed
 Module.register("MMM-SeaConditions", {
 
   defaults: {
-    apikey: "",
+    apiKey: '',
     lat: "52.1107",                 // latlon for North Sea Scheveningen beach
     lon: "4.2626",                  // in string format for url
     reloadInterval: 60*60*24*1000,  // refresh every 24 hours (measured in msec)
@@ -69,7 +69,7 @@ Module.register("MMM-SeaConditions", {
 		const options = {
 				method: 'GET',
 				headers: {
-					'x-rapidapi-key': this.config.apikey,
+					'x-rapidapi-key': this.config.apiKey,
 					'x-rapidapi-host': 'sea-surface-temperature.p.rapidapi.com',
 				}
 		};
